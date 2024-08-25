@@ -40,6 +40,12 @@ def autostart():
     subprocess.Popen([home])
 
 
+def set_refresh_rate():
+    subprocess.run(
+        ["xrandr", "--output", "HDMI-1", "--mode", "1920x1080", "--rate", "120"]
+    )
+
+
 mod = "mod4"
 terminal = guess_terminal()
 
