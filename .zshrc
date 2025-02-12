@@ -9,22 +9,38 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="awesomepanda"
-#
-#
 
-if [[ -z "$TMUX" ]]; then
-  session_count=$(tmux list-sessions 2>/dev/null | wc -l)
-  if [[ $session_count -gt 1 ]]; then
-    echo "Multiple sessions found. Select one:"
-    tmux list-sessions
-    read -p "Enter session name: " session
-    tmux attach-session -t "$session"
-  elif [[ $session_count -eq 1 ]]; then
-    tmux attach-session
-  else
-    tmux
+#Coustom config like prime
+
+
+# Bind Alt+F to open a file with fzf and open it in a new tmux session
+bindkey -s '^[f' 'tmux_new_session_from_file\n'
+
+# Bind Alt+D to open a saved tmux session
+bindkey -s '^[d' 'tmux_attach_to_session\n'
+
+# Function to open a file with fzf and create a new tmux session
+tmux_new_session_from_file() {
+  local file
+  file=$(fzf --height 40% --reverse --preview 'bat --color=always {}') || return
+  if [[ -n "$file" ]]; then
+    tmux new-session -s "$(basename "$file" | tr . _)" -n "edit" "nvim $file"
   fi
-fi
+}
+
+# Function to open a saved tmux session
+tmux_attach_to_session() {
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" | fzf --height 40% --reverse) || return
+  if [[ -n "$session" ]]; then
+    tmux attach-session -t "$session"
+  fi
+}
+
+
+
+
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
