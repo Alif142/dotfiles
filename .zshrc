@@ -22,7 +22,7 @@ bindkey -s '^[d' 'tmux_attach_to_session\n'
 # Function to open a file with fzf and create a new tmux session
 tmux_new_session_from_file() {
   local file
-  file=$(fzf --height 40% --reverse --preview 'bat --color=always {}') || return
+  file=$(fzf --height 40% --reverse ) || return
   if [[ -n "$file" ]]; then
     tmux new-session -s "$(basename "$file" | tr . _)" -n "edit" "nvim $file"
   fi
