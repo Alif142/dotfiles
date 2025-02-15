@@ -12,7 +12,6 @@ ZSH_THEME="awesomepanda"
 
 #Coustom config like prime
 #Run default tmux
-tmux
 # Bind Alt+F to open a file with fzf and open it in a new tmux session
 bindkey -s '^[f' 'tmux_new_session_from_file\n'
 

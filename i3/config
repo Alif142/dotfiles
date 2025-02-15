@@ -114,16 +114,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10:󰰜 "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -186,12 +186,17 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
+    colors {
+        background #3d3b3c  # Black background
+        statusline #ffffff  # White status line
+        focused_workspace #899e70 #899e70 #000000  # Green for focused workspace
+        inactive_workspace #333333 #333333 #ffffff  # Gray for inactive workspaces
+    }
 }
 
-
 exec no-startup-id picom
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 exec no-startup-id nitrogen --restore
 
 assign [class="firefox"]$ws1
@@ -214,7 +219,7 @@ bindsym $mod+Shift+e exec /home/alif/.config/i3/powermenu.sh
 
 
 #Colors
-set $bg-color 	         #3674B5
+set $bg-color 	         #c0a59a
 set $inactive-bg-color   #000000
 set $text-color          #FAF7F0
 set $inactive-text-color #676E7D
