@@ -13,18 +13,12 @@ general {
 }
 
 order += "disk /"
-order += "battery all"
-order += "load"
 order += "tztime local"
 
 tztime local {
-        format = " %d-%m-%Y | %I:%M:%S"
-}
-
-load {
-        format = " %1min"
+        format = " %d-%m-%Y | %I:%M:%S"
 }
 
 disk "/" {
-        format = " %avail"
+        format = " %avail"
 }

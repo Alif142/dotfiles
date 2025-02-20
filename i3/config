@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -188,9 +188,9 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
     colors {
-        background #3d3b3c  # Black background
+        background #131b34  # Black background
         statusline #ffffff  # White status line
-        focused_workspace #899e70 #899e70 #000000  # Green for focused workspace
+        focused_workspace #294463 #294463 #000000  # Green for focused workspace
         inactive_workspace #333333 #333333 #ffffff  # Gray for inactive workspaces
     }
 }
@@ -219,7 +219,7 @@ bindsym $mod+Shift+e exec /home/alif/.config/i3/powermenu.sh
 
 
 #Colors
-set $bg-color 	         #c0a59a
+set $bg-color 	         #3e6391
 set $inactive-bg-color   #000000
 set $text-color          #FAF7F0
 set $inactive-text-color #676E7D
