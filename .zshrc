@@ -37,7 +37,7 @@ tmux_attach_to_session() {
 }
 
 
-
+export FZF_DEFAULT_COMMAND='find . -type f' 
 
 
 # Set list of themes to pick from when loading at random
@@ -105,7 +105,7 @@ tmux_attach_to_session() {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
