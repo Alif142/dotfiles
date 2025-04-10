@@ -124,7 +124,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10:󰰜 "
-
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -187,12 +186,13 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     status_command i3status
-    colors {
-        background #000000  # Black background
-        statusline #ffffff  # White status line
-        focused_workspace #b75026 #b75026 #000000  # Green for focused workspace
-        inactive_workspace #333333 #333333 #ffffff  # Gray for inactive workspaces
-    }
+        position top
+        colors {
+            background #000000  # Black background
+                statusline #ffffff  # White status line
+                focused_workspace #b75026 #b75026 #000000  # Green for focused workspace
+                inactive_workspace #333333 #333333 #ffffff  # Gray for inactive workspaces
+        }
 }
 
 exec no-startup-id picom
