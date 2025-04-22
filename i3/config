@@ -184,16 +184,17 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command i3status
-        position top
-        colors {
-            background #000000  # Black background
-                statusline #ffffff  # White status line
-                focused_workspace #b75026 #b75026 #000000  # Green for focused workspace
-                inactive_workspace #333333 #333333 #ffffff  # Gray for inactive workspaces
-        }
-}
+
+#bar {
+#    status_command i3status
+#        position top
+#        colors {
+#            background #000000  # Black background
+#                statusline #ffffff  # White status line
+#                focused_workspace  #93bed9 #93bed9 #000000  # Green for focused workspace
+#                inactive_workspace #333333 #333333 #ffffff  # Gray for inactive workspaces
+#        }
+#}
 
 exec no-startup-id picom
 for_window [class="^.*"] border pixel 2
@@ -216,10 +217,11 @@ exec --no-startup-id picom
 exec_always /home/alif/.screenlayout/screenlayout.sh
 bindsym $mod+Shift+e exec /home/alif/.config/i3/powermenu.sh
 
-
+# Auto-start Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 #Colors
-set $bg-color 	         #b75026
+set $bg-color 	         #31748f
 set $inactive-bg-color   #000000
 set $text-color          #FAF7F0
 set $inactive-text-color #676E7D
@@ -231,4 +233,6 @@ client.unfocused        $inacative-bg-color $inactive-bg-color $inactive-text-co
 client.focused_inactive $inacative-bg-color $inactive-bg-color $inactive-text-color $bg-color
 client.urgent           $bg-color           $bg-color          $text-color          $bg-color
 
+# on i3 start/reload, make sure ws1 is tabbed
+exec_always --no-startup-id i3-msg 'workspace number $ws1; layout tabbed; workspace number $ws1'
 

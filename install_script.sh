@@ -1,115 +1,84 @@
 #!/bin/bash
 
-# Function to display the installation logo
-show_logo() {
-    echo -e "\033[1;36m"
-    cat << "EOF"
-   _____  _____ _______ ______ _____  
-  / ____|/ ____|__   __|  ____|  __ \ 
- | (___ | |       | |  | |__  | |__) |
-  \___ \| |       | |  |  __| |  _  / 
-  ____) | |____   | |  | |____| | \ \ 
- |_____/ \_____|  |_|  |______|_|  \_\
-EOF
-    echo -e "\033[0m"
-    echo -e "\033[1;34mArch Linux Package Installer\033[0m"
-    echo -e "\033[1;33m--------------------------------\033[0m"
-    echo ""
+# ==============================================
+# Neovim + App Installer for Linux Mint
+# ==============================================
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Check if running as root
+if [ "$EUID" -ne 0 ]; then
+  echo -e "${RED}Please run as root (sudo).${NC}"
+  exit 1
+fi
+
+# ==============================================
+# TABLE OF APPS TO INSTALL (Edit as needed)
+# ==============================================
+declare -A APPS=(
+  ["neovim_deps"]="git cmake ninja-build gettext libtool libtool-bin autoconf automake g++ pkg-config unzip curl doxygen"
+  ["neovim"]="neovim"  # Will be built from source
+  ["git"]="git"
+  ["nodejs"]="nodejs npm"  # For LSP (e.g., Typescript, ESLint)
+  ["python"]="python3 python3-pip python3-venv"
+  ["ripgrep"]="ripgrep"  # For telescope.nvim
+  ["fd"]="fd-find"  # Faster file finding
+  ["lazygit"]="lazygit"  # Git TUI
+  ["tmux"]="tmux"  # Terminal multiplexer
+  ["zsh"]="zsh"  # Better shell
+  ["i3"]="i3wm"
+  ["picom"]="picom"
+  ["lxappearance"]="lxappearance"
+  ["qbittorrent"]="qbittorrent"
+  ["fzf"]="fzf"
+  ["arandr"]="arandr"
+)
+
+# ==============================================
+# INSTALLATION FUNCTIONS
+# ==============================================
+
+install_deps() {
+  echo -e "${YELLOW}Updating packages...${NC}"
+  apt update && apt upgrade -y
+
+  echo -e "${YELLOW}Installing dependencies...${NC}"
+  apt install -y ${APPS["neovim_deps"]}
 }
 
-# Function to check if running as root
-check_root() {
-    if [ "$(id -u)" -ne 0 ]; then
-        echo -e "\033[1;31mError: This script must be run as root\033[0m"
-        exit 1
-    fi
-}
 
-# Function to update system
-update_system() {
-    echo -e "\033[1;34mUpdating system packages...\033[0m"
-    pacman -Syu --noconfirm
-    echo -e "\033[1;32mSystem update complete.\033[0m"
-}
+install_apps() {
+  local selected_apps=("$@")
 
-# Function to install package
-install_package() {
-    local package=$1
-    echo -e "\033[1;32mInstalling $package...\033[0m"
-    
-    if pacman -Qs "$package" > /dev/null ; then
-        echo -e "\033[1;33m$package is already installed.\033[0m"
+  for app in "${selected_apps[@]}"; do
+    if [ -n "${APPS[$app]}" ]; then
+      echo -e "${YELLOW}Installing $app...${NC}"
+      apt install -y ${APPS[$app]}
     else
-        if pacman -S --noconfirm "$package"; then
-            echo -e "\033[1;32mSuccessfully installed $package\033[0m"
-        else
-            echo -e "\033[1;31mFailed to install $package\033[0m"
-            return 1
-        fi
+      echo -e "${RED}Unknown app: $app${NC}"
     fi
+  done
 }
 
-# Function to display package list
-show_package_list() {
-    echo -e "\033[1;35mThe following packages will be installed:\033[0m"
-    echo -e "\033[1;33m+-------------------------------+"
-    echo -e "| No. | Package Name            |"
-    echo -e "|-----|-------------------------|"
-    
-    local count=1
-    for pkg in "${packages[@]}"; do
-        printf "| %-3s | %-23s |\n" "$count" "$pkg"
-        ((count++))
-    done
-    
-    echo -e "+-------------------------------+"
-    echo ""
-}
+# ==============================================
+# USER SELECTION MENU
+# ==============================================
+echo -e "${GREEN}=== Available Apps ==="
+for app in "${!APPS[@]}"; do
+  echo "- $app"
+done
+echo -e "=======================${NC}"
 
-# Main function
-main() {
-    show_logo
-    check_root
-    
-    # Define your packages here (no categories needed)
-    declare -a packages=(
-        "nvim"
-        "firefox"
-        "git"
-        "python3"
-        "tmux"
-        "wget"
-        "openssh"
-        "base-devel"
-        "nemo"
-        "vlc"
-        "qbittorrent"
-        "picom"
-        "lxappearance"
-    )
-    
-    # Show package list
-    show_package_list
-    
-    # Ask for confirmation
-    read -p $'\033[1;36mDo you want to proceed with installation? (y/n): \033[0m' -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo -e "\033[1;31mInstallation aborted by user.\033[0m"
-        exit 0
-    fi
-    
-    # Update system first
-    update_system
-    
-    # Install all packages
-    echo -e "\033[1;35mStarting package installation...\033[0m"
-    for pkg in "${packages[@]}"; do
-        install_package "$pkg"
-    done
-    
-    echo -e "\033[1;32m\nAll packages installed successfully!\033[0m"
-}
+read -p "Enter apps to install (space-separated, e.g., git nodejs): " -a user_choices
 
-# Execute main function
-main
+# ==============================================
+# EXECUTE INSTALLATION
+# ==============================================
+install_deps
+install_apps "${user_choices[@]}"
+
+echo -e "${GREEN}Installation complete!${NC}"
