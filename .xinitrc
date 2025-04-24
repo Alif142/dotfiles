@@ -1,5 +1,6 @@
+~/autostart.sh &
+~/.screenlayout/screenlayout.sh &
 picom &
-st &
 sh ~/.dwm/status.sh &
 nitrogen --restore &
 xsetroot -solid "#111111" &

@@ -16,7 +16,7 @@ ZSH_THEME="awesomepanda"
 bindkey -s '^[f' 'tmux_new_session_from_file\n'
 
 # Bind Alt+D to open a saved tmux session
-bindkey -s '^[d' 'tmux_attach_to_session\n'
+#bindkey -s '^[d' 'tmux_attach_to_session\n'
 
 # Function to open a file with fzf and create a new tmux session
 tmux_new_session_from_file() {
@@ -136,6 +136,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ta='tmux attach'
+
+function run_tmux_workspace() {
+  if [[ -z "$TMUX" ]]; then
+    ~/.tmux/tmux_workspace.sh
+  else
+    echo "You're already in a tmux session."
+  fi
+}
+
+# Bind Alt+d (Escape + d) to run the function
+bindkey -s '\ed' 'run_tmux_workspace\n'
+
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
