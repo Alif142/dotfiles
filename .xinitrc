@@ -1,4 +1,4 @@
-firefox &
+picom &
 st &
 sh ~/.dwm/status.sh &
 nitrogen --restore &
