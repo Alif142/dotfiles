@@ -1,0 +1,42 @@
+@import "~/.config/rofi/themes/rosepine-square.rasi"  /* or use your shared theme directly */
+
+* {
+    font: "Meslo LGM Nerd Font 12";
+    background: #191724;
+    foreground: #e0def4;
+    selected:   #31748f;
+    border:     #6e6a86;
+}
+
+window {
+    width: 400;
+    border: 3;
+    border-radius: 6;
+    border-color: @border;
+    background-color: @background;
+}
+
+mainbox {
+    padding: 10;
+}
+
+listview {
+    lines: 5;
+    spacing: 5;
+    scrollbar: false;
+}
+
+element {
+    padding: 8px;
+    border-radius: 4;
+}
+
+element-text {
+    text-color: @foreground;
+}
+
+element.selected {
+    background-color: @selected;
+    text-color: @background;
+}
+
