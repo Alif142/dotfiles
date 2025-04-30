@@ -1,8 +1,3 @@
-~/autostart.sh &
-~/.screenlayout/screenlayout.sh &
-picom &
-sh ~/.dwm/status.sh &
-nitrogen --restore &
+setxkbmap -option caps:escape
 xsetroot -solid "#111111" &
-xclip -selection clipboard &
-exec dwm
+exec bspwm 

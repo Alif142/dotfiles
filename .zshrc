@@ -138,7 +138,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ta='tmux attach'
-alias su='sudo pacman -Syu'
+alias up='sudo apt update && sudo apt full-upgrade'
+alias ls='ls -a'
 
 function run_tmux_workspace() {
   if [[ -z "$TMUX" ]]; then
