@@ -1,17 +1,17 @@
-@import "~/.config/rofi/themes/rosepine-square.rasi"  /* or use your shared theme directly */
+@import "~/.config/rofi/themes/oxocarbon-base.rasi"  /* optional: separate shared definitions */
 
 * {
     font: "Meslo LGM Nerd Font 12";
-    background: #191724;
-    foreground: #e0def4;
-    selected:   #31748f;
-    border:     #6e6a86;
+    background: #161616;   // Base background (very dark)
+    foreground: #f2f4f8;   // Light gray foreground
+    selected:   #393939;   // Slightly lighter graphite (for selected item)
+    border:     #525252;   // Medium graphite (border)
 }
 
 window {
     width: 400;
-    border: 3;
-    border-radius: 6;
+    border: 2;
+    border-radius: 0;
     border-color: @border;
     background-color: @background;
 }
@@ -37,6 +37,6 @@ element-text {
 
 element.selected {
     background-color: @selected;
-    text-color: @background;
+    text-color: @foreground;
 }
 

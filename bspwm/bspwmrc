@@ -3,6 +3,9 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
+bspc rule -a Polybar manage=on border=on
+bspc config focused_border_color  "#f2f4f8"
+bspc config normal_border_color   "#f2f4f8"
 
 # Syntax: bspc rule -a <class_name> desktop='^<workspace_number>'
 bspc rule -a Brave-browser desktop='^1'   # Firefox opens on workspace 1
@@ -11,7 +14,7 @@ bspc rule -a Nemo desktop='^3'    # File manager on workspace 3
 bspc rule -a vlc desktop='^1'    # File manager on workspace 3
 bspc rule -a qBittorrent desktop='^10'   # Discord on workspace 4
 
-bspc config border_width         0
+bspc config border_width        1
 bspc config window_gap          0
 bspc config top_padding 45
 
