@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="awesomepanda"
+ZSH_THEME="alanpeabody"
 
 #Coustom config like prime
 #Run default tmux
@@ -152,6 +152,25 @@ function run_tmux_workspace() {
 
 # Bind Alt+d (Escape + d) to run the function
 bindkey -s '\ed' 'run_tmux_workspace\n'
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# Create a Zsh widget from the function
+zle-y() {
+	y
+	zle reset-prompt
+}
+zle -N zle-y
+
+# Bind Ctrl+y to the widget
+bindkey '^Y' zle-y
 
 
 # Generated for envman. Do not edit.

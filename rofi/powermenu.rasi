@@ -26,7 +26,7 @@ window {
     height:         500;
     border-radius:  0px;
     border:   @color15;
-    border: 4px;
+    border: 0px;
 }
 
 mainbox {
@@ -67,8 +67,8 @@ listview {
 }
 
 element {
-    padding:        8px 16px;
-    spacing:        8px;
+    padding:        2px;
+    spacing:        18px;
     border-radius:  0px;
 }
 
@@ -78,7 +78,9 @@ element normal active {
 element alternate active {
 }
 
-element selected normal, element selected active {
+element selected normal,element selected active {
+    background-color:@foreground;
+    foreground:@foreground;
 }
 
 element-icon {
@@ -87,5 +89,5 @@ element-icon {
 }
 
 element-text {
-    text-color: inherit;
+    text-color: @foreground;
 }
