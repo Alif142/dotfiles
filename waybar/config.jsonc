@@ -3,7 +3,7 @@
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 35, // Waybar height (to be removed for auto height)
-    "width": 1850, // Waybar width
+    "width": 1910, // Waybar width
     "margin": 8,
     "spacing": 15, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -207,3 +207,5 @@
 		  "on-click": "rofi -show drun"
     }
 }
+
+

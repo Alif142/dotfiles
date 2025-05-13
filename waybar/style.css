@@ -143,7 +143,7 @@ button:hover {
 /* WORKSPACES */
 
 #workspaces {
-    background: @color1;
+    background: @color2;
     margin: 0 4px;
     color: #000000;
 }
@@ -180,13 +180,13 @@ label:focus {
 }
 
 #cpu {
-    background-color: @color7;
+    background-color: @color3;
     color: #000000;
     border-radius: 0px;
 }
 
 #memory {
-    background-color: @color12;
+    background-color: @color4;
     color: #000000;
     border-radius: 0px;
 }
@@ -203,7 +203,7 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: @color1;
+    background-color: @color6;
     color: rgba(0, 0, 0, 1);
     border-radius: 0px;
 }
