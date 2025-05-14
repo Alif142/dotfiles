@@ -110,6 +110,7 @@ button:hover {
     background-color: @color1;
     color: #000000;
     border-radius: 0px;
+    border: 3px solid @color0;
 }
 
 #clock:hover,
@@ -146,6 +147,7 @@ button:hover {
     background: @color2;
     margin: 0 4px;
     color: #000000;
+    border: 3px solid @color0;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -183,12 +185,14 @@ label:focus {
     background-color: @color3;
     color: #000000;
     border-radius: 0px;
+    border: 3px solid @color0;
 }
 
 #memory {
     background-color: @color4;
     color: #000000;
     border-radius: 0px;
+    border: 3px solid @color0;
 }
 
 #disk {
@@ -200,6 +204,7 @@ label:focus {
     background-color: @color5;
     color: rgba(0, 0, 0, 1);
     border-radius: 0px;
+    border: 3px solid @color0;
 }
 
 #pulseaudio.muted {

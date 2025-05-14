@@ -1,12 +1,13 @@
-width=800
-height=400
-location=center
+[config]
+allow_images=true
+width=500
 show=drun
-prompt=Search...
-filter_rate=100
-allow_markup=true
-halign=fill
-orientation=vertical
-cpmtemt=halign=fill
+prompt=Search
+height=400
+term=kitty
+hide_scroll=true
+print_command=true
 insensitive=true
+columns=1
+no_actions=true
 
