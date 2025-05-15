@@ -1,5 +1,5 @@
 #!/bin/bash
 firefox &
-kitty &
+ghostty &
 nemo &
 qbittorrent &

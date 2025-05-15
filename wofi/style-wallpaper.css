@@ -17,7 +17,7 @@ window {
     all:unset;
     padding: 20px;
     border-radius: 0px;
-    background-color: alpha(@background,.5);
+    background-color: alpha(@background,.9);
 }
 #inner-box {
     margin: 2px;
@@ -42,9 +42,9 @@ window {
     border: none;
     outline: none;
     color: @text;
-    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
+    box-shadow: 1px 1px 5px rgba(0,0,0, .9);
     border-radius:0;
-    background-color: alpha(@background,.2);
+    background-color: alpha(@background,.9);
 }
 #input image {
     border: none;

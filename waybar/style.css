@@ -137,6 +137,26 @@ button:hover {
   border-radius: 12px;
 }
 
+#tray{
+  background-color: @color6;
+  border-radius: 0px;
+  color: #000000;
+  border: 3px solid @color0;
+}
+
+#custom-distrologo{
+  background-color: @color1;
+  border-radius: 0px;
+  color: #000000;
+  border: 3px solid @color0;
+}
+
+#custom-power{
+  background-color: @color2;
+  border-radius: 0px;
+  color: #000000;
+  border: 3px solid @color0;
+}
 #window {
     margin: 0 4px;
 }

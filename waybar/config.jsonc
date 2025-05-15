@@ -2,12 +2,13 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 35, // Waybar height (to be removed for auto height)
+    "height": 20, // Waybar height (to be removed for auto height)
     "width": 1910, // Waybar width
     "margin": 8,
     "spacing": 15, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "tray",
         "hyprland/workspaces",
     ],
     "modules-center": [
@@ -31,7 +32,7 @@
             "default": "[]"
         },
         "persistent-workspaces": {
-            "*": [ 1,2,3,4,5,6,7,8,9,10 ]
+            "*": [ 1,2,3,4,5]
     }
     },
     "keyboard-state": {
@@ -183,9 +184,9 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻",
+        "format" : "⏻ ",
 		"tooltip": false,
-		"on-click": "wlogout"
+		"on-click": "/home/alif/.config/wofi/wofi-power.sh"
     },
     "custom/wifi": {
         "format" : "",
@@ -202,9 +203,9 @@
       "tooltip-format": "I'm using Arch BTW",
       "tooltip": true,
       "format-icons": {
-        "default": "󰣇",
+        "default": "󰣇 ",
       },
-		  "on-click": "rofi -show drun"
+		  "on-click": "wofi --show run"
     }
 }
 
