@@ -1,5 +1,5 @@
 #!/bin/bash
-firefox &
-ghostty &
+flatpak run app.zen_browser.zen &
+kitty &
 nemo &
 qbittorrent &
