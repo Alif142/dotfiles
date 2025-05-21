@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+cd
+sudo dnf install npm
+mkdir work
+
+cd  /home/alif/work/
+git clone https://github.com/Alif142/c_cpp.git
+git clone https://github.com/Alif142/python.git
+
+cd
+
+
+cd /home/alif/.config/
+git clone https://github.com/Alif142/nvim.git
+
+cd
+
