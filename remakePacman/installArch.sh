@@ -29,5 +29,3 @@ sudo pacman -S fastfetch
 sudo pacman -S nemo-fileroller
 sudo pacman -S nwg-look
 sudo pacman -S pavucontrol
-sudo pacman -S flatpak
-flatpak install flathub app.zen_browser.zen
