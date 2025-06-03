@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo -en "󰐥 Shutdown\n󰜉 Reboot\n󰌾 Logout\n󰍂 Lock\n󰒲 Suspend\n" | rofi -dmenu -theme powermenu.rasi -p "Power:" | {
+echo -en "󰐥 Shutdown\n󰜉 Reboot\n󰌾 Logout\n󰍂 Lock\n󰒲 Suspend\n" | rofi -dmenu -p "Power:" | {
     read choice
     case $choice in
-        "󰐥 Shutdown") systemctl poweroff ;;
-        "󰜉 Reboot") systemctl reboot ;;
-        "󰌾 Logout") hyprctl dispatch exit ;;
-        "󰍂 Lock") hyprlock ;;
+        "󰐥 Shutdown") shutdown now ;;
+        "󰜉 Reboot")  reboot ;;
+        "󰌾 Logout") i3-msg exit ;;
+        "󰍂 Lock") i3lock ;;
         "󰒲 Suspend") systemctl suspend ;;
     esac
 }
