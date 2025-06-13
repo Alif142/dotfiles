@@ -1,33 +1,14 @@
 #!/usr/bin/env bash
 
-sudo pacman -Syu
-sudo pacman -S ntfs-3g 
-sudo pacman -S neovim
-sudo pacman -S npm
-sudo pacman -S os-prober
-sudo pacman -S python-pywal
-sudo pacman -S qbittorrent
-sudo pacman -S rofi
-sudo pacman -S slurp
-sudo pacman -S swww
-sudo pacman -S tmux
-sudo pacman -S vlc
-sudo pacman -S waybar
-sudo pacman -S yazi
-sudo pacman -S firefox
-sudo pacman -S fzf
-sudo pacman -S git
-sudo pacman -S github-cli
-sudo pacman -S grim
-sudo pacman -S hyprlock
-sudo pacman -S gtk-engine-murrine
-sudo pacman -S hyprpaper
-sudo pacman -S base-devel
-sudo pacman -S copyq
-sudo pacman -S gtk-engines
-sudo pacman -S fastfetch
-sudo pacman -S nemo-fileroller
-sudo pacman -S nwg-look
-sudo pacman -S pavucontrol
-sudo pacman -S flatpak
-flatpak install flathub app.zen_browser.zen
+set -e
+
+# Update system and install all packages without confirmation
+sudo dnf update -y && sudo dnf install -y \
+  ntfs-3g neovim npm os-prober python3-pywal qbittorrent rofi slurp \
+  swww tmux vlc waybar yazi firefox fzf git gh grim gtk-murrine-engine \
+  hyprlock hyprpaper @development-tools copyq gtk2-engines fastfetch \
+  nemo-fileroller nwg-look pavucontrol flatpak
+
+# Install flatpak app without prompt
+flatpak install -y flathub app.zen_browser.zen
+

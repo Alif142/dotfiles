@@ -137,9 +137,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ta='tmux attach'
-alias up='sudo pacman -Syu'
+alias tk='tmux kill-server'
+alias up='sudo dnf upgrade'
 alias ls='ls -a'
-alias conf='cd .config/hypr'
+alias conf='cd ~/.config/i3'
 
 function run_tmux_workspace() {
   if [[ -z "$TMUX" ]]; then
