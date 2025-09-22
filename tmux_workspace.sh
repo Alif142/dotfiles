@@ -20,7 +20,6 @@ tmux has-session -t nvim_cfg 2>/dev/null || {
 # Session 4: Home
 tmux has-session -t home 2>/dev/null || {
   tmux new-session -d -s home -c /home/alif
-  tmux new-window -t home:1 -n yazi -c /home/alif
 }
 
 # FZF session picker
