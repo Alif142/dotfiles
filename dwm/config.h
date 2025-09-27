@@ -1,23 +1,21 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Meslo LGM Nerd Font Italic:size=16" };
+static const char *fonts[]          = { "JetbrainsMono Nerd Font:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#6e6a86";
+static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_main[]        = "#191724";
-static const char col_white[]       = "#faf4ed";
+static const char col_purple[]      = "#394056";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray1, col_main, col_main },
-	[SchemeSel]  = { col_main, col_gray1, col_gray1  },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_purple,  col_purple },
 };
 
 /* tagging */
@@ -31,7 +29,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 
 	{ "Gimp",            		         NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",        	    	     NULL,       NULL,       1 << 0,       0,           -1 },
+	{ "Brave-browser",        	    	 NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "org.wezfurlong.wezterm",          NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Nemo",    			             NULL,       NULL,       1 << 2,       0,           -1 },
 	{ "vlc",    			             NULL,       NULL,       1 << 3,       0,           -1 },
@@ -43,6 +41,7 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int refreshrate = 120;  /* refresh rate (per second) for client move/resize */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -52,7 +51,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -64,15 +63,16 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_main, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "org.wezfurlong.wezterm", NULL };
-static const char *rofi_cmd[] = { "rofi", "-show", "drun", "-theme", "~/.config/rofi/themes/rosepine-square.rasi", NULL };
-static const char *rofi_powercmd[]  = { "/home/alif/.config/rofi/powermenu.sh", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_purple, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { "wezterm", NULL };
+static const char *rofi[]  = { "rofi", "-show", "drun","-modi", "drun","-show-icon", "theme", "~/.config/rofi/config.rasi", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = rofi_cmd } },
-	{ MODKEY, 	                    XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = rofi } },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("~/.config/rofi/powermenu.sh") },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+    { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("clipmenu") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -80,9 +80,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_z, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,            		XK_q,      killclient,     {0} },
+	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -104,7 +104,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { MODKEY|ShiftMask,             XK_d,      spawn,          {.v = rofi_powercmd } },
 };
 
 /* button definitions */
