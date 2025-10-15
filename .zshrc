@@ -3,42 +3,36 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+bindkey -s '^f' '~/.tmux/tmux-sessionizer.sh\n'
 
+autoload -U colors && colors
+
+# Function to show git branch + status
+git_prompt_info() {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    branch=$(git branch --show-current 2>/dev/null)
+    if [[ $? -eq 0 && -n $branch ]]; then
+      # Show ✔ or ✘ only in git repos
+      if [[ $? -eq 0 ]]; then
+        echo "%F{magenta} $branch%f %(?.%F{2}✔.%F{1}✘)%f"
+      fi
+    fi
+  fi
+}
+
+# Prompt definition (Yaru-dark-grey inspired)
+PROMPT='%F{242}%n@%m%f %F{33}%~%f $(git_prompt_info)
+%F{244}%*%f ❯ '
 #Coustom config like prime
 #Run default tmux
 # Bind Alt+F to open a file with fzf and open it in a new tmux session
-bindkey -s '^[f' 'tmux_new_session_from_file\n'
-
-# Bind Alt+D to open a saved tmux session
-#bindkey -s '^[d' 'tmux_attach_to_session\n'
-
-# Function to open a file with fzf and create a new tmux session
-tmux_new_session_from_file() {
-  local file
-  file=$(fzf --height 40% --reverse ) || return
-  if [[ -n "$file" ]]; then
-    tmux new-session -s "$(basename "$file" | tr . _)" -n "edit" "nvim $file"
-  fi
-}
-
-# Function to open a saved tmux session
-tmux_attach_to_session() {
-  local session
-  session=$(tmux list-sessions -F "#{session_name}" | fzf --height 40% --reverse) || return
-  if [[ -n "$session" ]]; then
-    tmux attach-session -t "$session"
-  fi
-}
-
-
-export FZF_DEFAULT_COMMAND='find . -type f' 
-
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -93,12 +87,6 @@ export FZF_DEFAULT_COMMAND='find . -type f'
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-#alisa
-
-
-
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -138,40 +126,12 @@ source $ZSH/oh-my-zsh.sh
 
 alias ta='tmux attach'
 alias tk='tmux kill-server'
-alias up='sudo dnf upgrade'
-alias ls='ls -a'
-alias conf='cd ~/.config/i3'
-
-function run_tmux_workspace() {
-  if [[ -z "$TMUX" ]]; then
-    ~/.tmux/tmux_workspace.sh
-  else
-    echo "You're already in a tmux session."
-  fi
-}
-
-# Bind Alt+d (Escape + d) to run the function
-bindkey -s '\ed' 'run_tmux_workspace\n'
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
-# Create a Zsh widget from the function
-zle-y() {
-	y
-	zle reset-prompt
-}
-zle -N zle-y
-
-# Bind Ctrl+y to the widget
-bindkey '^Y' zle-y
-
-
+alias up='sudo pacman -Syu'
+alias ls='ls -la'
+alias conf='cd ~/suckless/'
+alias n='nvim .'
+alias main='git checkout main'
+alias test='git checkout test'
+alias run='cargo run'
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
