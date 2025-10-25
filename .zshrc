@@ -5,31 +5,18 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-bindkey -s '^f' '~/.tmux/tmux-sessionizer.sh\n'
+#bindkey -s '^f' '~/.tmux/tmux-sessionizer.sh\n'
 
 autoload -U colors && colors
 
 # Function to show git branch + status
-git_prompt_info() {
-  if git rev-parse --is-inside-work-tree &>/dev/null; then
-    branch=$(git branch --show-current 2>/dev/null)
-    if [[ $? -eq 0 && -n $branch ]]; then
-      # Show ✔ or ✘ only in git repos
-      if [[ $? -eq 0 ]]; then
-        echo "%F{magenta} $branch%f %(?.%F{2}✔.%F{1}✘)%f"
-      fi
-    fi
-  fi
-}
-
-# Prompt definition (Yaru-dark-grey inspired)
-PROMPT='%F{242}%n@%m%f %F{33}%~%f $(git_prompt_info)
-%F{244}%*%f ❯ '
 #Coustom config like prime
 #Run default tmux
 # Bind Alt+F to open a file with fzf and open it in a new tmux session
@@ -126,12 +113,24 @@ source $ZSH/oh-my-zsh.sh
 
 alias ta='tmux attach'
 alias tk='tmux kill-server'
-alias up='sudo pacman -Syu'
+alias up='sudo apt update && sudo apt upgrade'
 alias ls='ls -la'
-alias conf='cd ~/suckless/'
 alias n='nvim .'
 alias main='git checkout main'
 alias test='git checkout test'
-alias run='cargo run'
+alias runcargo='cargo run'
+alias rungo='go run .'
+alias i3='nvim /home/alif/.config/i3/config'
+alias zshconf='nvim /home/alif/.zshrc'
+alias alacritty='nvim /home/alif/.config/alacritty/alacritty.toml'
+
+#Sessonizer commands for individual dirs
+bindkey -s '^f' '~/.config/tmux/sessions.sh fzf\n'
+bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'
+bindkey -s '^o' '~/.config/tmux/sessions.sh python\n'
+bindkey -s '^p' '~/.config/tmux/sessions.sh go\n'
+
+
+eval "$(starship init zsh)"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
