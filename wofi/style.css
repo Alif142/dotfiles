@@ -1,0 +1,83 @@
+window {
+    background-color: #141415;
+    color: #cdcdcd;
+    border-radius: 0px;
+    border: 1px solid #252530;
+    padding: 10px;
+    font-family: "SF Pro Text", "Inter", "Segoe UI", "NotoSans Nerd Font", sans-serif;
+    font-size: 16px;
+}
+
+/* Search bar */
+#input {
+    margin: 8px;
+    padding: 6px 10px;
+    border-radius: 0px;
+    border: 1px solid #252530;
+    background-color: #1c1c24;
+    color: #cdcdcd;
+    caret-color: #90a0b5;
+    outline: none;
+}
+
+#input:focus {
+    border-color: #6e94b2;
+    background-color: #252530;
+}
+
+/* List of results */
+#outer-box {
+    margin: 4px;
+}
+
+#inner-box {
+    margin: 4px;
+}
+
+/* Entry (each line in list) */
+#entry {
+    background-color: transparent;
+    padding: 6px 10px;
+    margin: 2px 0;
+    border-radius: 0px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Selected (hovered) entry */
+#entry:selected {
+    background-color: #333738;
+    color: #e8b589; /* string color for highlight */
+    border: 1px solid #252530;
+}
+
+/* Text of entries */
+#text {
+    color: #cdcdcd;
+}
+
+/* Match highlight inside entries */
+#text:selected {
+    color: #e8b589; /* string tone for match */
+}
+
+/* Scrollbar */
+scrollbar, scrollbar * {
+    min-width: 8px;
+    background-color: #1c1c24;
+}
+
+scrollbar slider {
+    background-color: #606079;
+    border-radius: 0px;
+}
+
+/* Placeholder text */
+#input::placeholder {
+    color: #606079;
+}
+
+/* Error state (optional if used for script prompts) */
+.error {
+    color: #d8647e;
+}
+

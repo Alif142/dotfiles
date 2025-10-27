@@ -1,7 +1,6 @@
 # ~/.config/alacritty/alacritty.toml
-
 [window]
-opacity = 1.0
+opacity = 0.8
 padding = { x = 10, y = 10 }
 decorations = "none"
 
@@ -35,4 +34,6 @@ white   = "#e0e0e0"
 
 [env]
 TERM = "xterm-256color"
+
+[terminal]
 

@@ -62,6 +62,7 @@ fzf_sessionizer() {
   DIRS=(
     "$HOME/.config/nvim"
     "$HOME/work"
+    "$HOME/.config"
   )
 
   local selected

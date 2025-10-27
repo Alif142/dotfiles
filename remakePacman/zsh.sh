@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install Zsh
-sudo apt install zsh
+sudo pacman -S  zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cd
 # Define ZSH_CUSTOM if not already set
