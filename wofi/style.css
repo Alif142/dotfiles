@@ -4,8 +4,10 @@ window {
     border-radius: 0px;
     border: 1px solid #252530;
     padding: 10px;
-    font-family: "SF Pro Text", "Inter", "Segoe UI", "NotoSans Nerd Font", sans-serif;
+    font-family: "SF Pro Text", "Inter", "Segoe UI", "Meslo LGM Nerd Font", sans-serif;
     font-size: 16px;
+    width: 400px;
+    height: 300px;
 }
 
 /* Search bar */

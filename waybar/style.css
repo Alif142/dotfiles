@@ -48,9 +48,9 @@
 
 /* The whole bar */
 #waybar {
-    background: #141415;
-    color: white;
-    font-family: Cantarell, Noto Sans, Meslo LGM Nerd Font;
+    background: transparent;
+    color: #647FBC;
+    font-family: "MesloLGS Nerd Font", monospace;
     font-size: 13px;
 }
 
@@ -179,7 +179,7 @@
     padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #888888;
+    color: #647FBC;
 }
 
 #workspaces button.focused {

@@ -1,0 +1,16 @@
+{"timestamp":2029874,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"can_load":"true","path_key":"clean","loadfail_reason":"N/A","glean_timestamp":"1761587883682"}}
+{"timestamp":2029874,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"path_key":"clean","loadfail_reason":"N/A","can_load":"true","glean_timestamp":"1761587883682"}}
+{"timestamp":2029874,"category":"session_restore","name":"shutdown_success_session_startup","extra":{"glean_timestamp":"1761587883682","shutdown_reason":"N/A","shutdown_ok":"false"}}
+{"timestamp":2030115,"category":"webcompatreporting","name":"reason_dropdown","extra":{"setting":"required","glean_timestamp":"1761587883923"}}
+{"timestamp":2030233,"category":"nimbus_events","name":"startup_database_consistency","extra":{"total_db_count":"32","total_store_count":"32","db_active_count":"31","glean_timestamp":"1761587884042","trigger":"startup","primary":"database","store_active_count":"31"}}
+{"timestamp":2030261,"category":"jsonfile","name":"load_autofillprofiles","extra":{"glean_timestamp":"1761587884069","value":"error_notfounderror"}}
+{"timestamp":2030284,"category":"doh","name":"state_rollback","extra":{"glean_timestamp":"1761587884093","value":"null"}}
+{"timestamp":2030432,"category":"normandy","name":"enroll_failed_nimbus_experiment","extra":{"reason":"feature-conflict","value":"vertical-tabs-feature-callout-experiment-v20-treatment-a-rollout","glean_timestamp":"1761587884240"}}
+{"timestamp":2030432,"category":"nimbus_events","name":"enroll_failed","extra":{"experiment":"vertical-tabs-feature-callout-experiment-v20-treatment-a-rollout","reason":"feature-conflict","glean_timestamp":"1761587884240"}}
+{"timestamp":2030475,"category":"nimbus_events","name":"is_ready","extra":{"glean_timestamp":"1761587884284"}}
+{"timestamp":2030479,"category":"containers","name":"container_profile_loaded","extra":{"containers":"4","glean_timestamp":"1761587884288"}}
+{"timestamp":2030489,"category":"upgrade_dialog","name":"trigger_reason","extra":{"value":"not-major","glean_timestamp":"1761587884298"}}
+{"timestamp":2030511,"category":"extensions.data","name":"sync_usage_quotas","extra":{"total_size_bytes":"132","backend":"rust","items_over_quota":"0","addon_id":"addon@darkreader.org","glean_timestamp":"1761587884319","items_count":"5"}}
+{"timestamp":2035224,"category":"normandy","name":"expose_nimbus_experiment","extra":{"value":"new-tab-145120251009134757-to-release","glean_timestamp":"1761587889032","branchSlug":"rollout","featureId":"newtabTrainhopAddon"}}
+{"timestamp":2035224,"category":"nimbus_events","name":"exposure","extra":{"branch":"rollout","feature_id":"newtabTrainhopAddon","glean_timestamp":"1761587889032","experiment":"new-tab-145120251009134757-to-release"}}
+{"timestamp":2034171,"category":"media.playback","name":"first_frame_loaded","extra":{"metadata_loaded_time":"20","glean_timestamp":"1761587893783","buffering_time":"0","resolution":"AV,240<h<=480","is_hdr":"false","is_hardware_decoding":"false","decoder_name":"ffvpx video decoder (RDD remote)","playback_type":"MSE playback","video_codec":"video/av1","first_frame_loaded_time":"31","total_waiting_data_time":"6"}}
