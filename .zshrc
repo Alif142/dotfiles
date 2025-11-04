@@ -113,23 +113,17 @@ source $ZSH/oh-my-zsh.sh
 
 alias ta='tmux attach'
 alias tk='tmux kill-server'
-alias up='sudo apt update && sudo apt upgrade'
 alias ls='ls -la'
-alias n='nvim .'
 alias main='git checkout main'
 alias test='git checkout test'
-alias runcargo='cargo run'
-alias rungo='go run .'
-alias i3='nvim /home/alif/.config/i3/config'
-alias zshconf='nvim /home/alif/.zshrc'
-alias alacritty='nvim /home/alif/.config/alacritty/alacritty.toml'
-
+alias conf_back='./dotfiles/backup/backup.sh'
+alias rest_back='./dotfiles/backup/restore.sh'
+alias install_back='./dotfiles/backup/install.sh'
 #Sessonizer commands for individual dirs
 bindkey -s '^f' '~/.config/tmux/sessions.sh fzf\n'
 bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'
 bindkey -s '^o' '~/.config/tmux/sessions.sh python\n'
 bindkey -s '^p' '~/.config/tmux/sessions.sh go\n'
-
 
 eval "$(starship init zsh)"
 # Generated for envman. Do not edit.
