@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "Copying dotfiles"
 cp /home/alif/.zshrc /home/alif/dotfiles/
 cp /home/alif/.zsh_history /home/alif/dotfiles/
 cp -r /home/alif/.config/alacritty/ /home/alif/dotfiles/
@@ -11,3 +12,4 @@ cp -r /home/alif/.config/waybar/ /home/alif/dotfiles/
 cp -r /home/alif/.config/wofi/ /home/alif/dotfiles/
 cp -r /home/alif/.themes/Cloudy-Grey-Dark/ /home/alif/dotfiles/
 pacman -Qqe > /home/alif/dotfiles/backup/pkglist.txt
+echo "Backup done..."
