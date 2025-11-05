@@ -10,7 +10,7 @@
     "custom/uptime",
     "cpu",
     "memory",
-    "tray",
+    "custom/power",
   ],
 
   "hyprland/workspaces": {
@@ -79,7 +79,7 @@
 
   "custom/power": {
     "tooltip": false,
-    "on-click": "wlogout &",
+    "on-click": "/home/alif/.config/fuzzel/powermenu.sh",
     "format": "⏻"
   },
 
