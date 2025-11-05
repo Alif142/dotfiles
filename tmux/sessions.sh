@@ -63,6 +63,7 @@ fzf_sessionizer() {
     "$HOME/.config/nvim"
     "$HOME/work"
     "$HOME/.config"
+    "$HOME/dotfiles"
   )
 
   local selected
