@@ -56,6 +56,7 @@ starship
 swww
 tmux
 ttf-jetbrains-mono-nerd
+ttf-meslo-nerd
 unzip
 uwsm
 vim

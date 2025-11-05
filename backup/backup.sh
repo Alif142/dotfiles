@@ -10,4 +10,5 @@ cp -r /home/alif/.config/hypr/ /home/alif/dotfiles/
 cp -r /home/alif/.config/waybar/ /home/alif/dotfiles/
 cp -r /home/alif/.config/wofi/ /home/alif/dotfiles/
 cp -r /home/alif/.themes/Cloudy-Grey-Dark/ /home/alif/dotfiles/
+pacman -Qqe > /home/alif/dotfiles/backup/pkglist.txt
 
