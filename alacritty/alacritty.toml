@@ -1,6 +1,6 @@
 # ~/.config/alacritty/alacritty.toml
 [window]
-opacity = 0.6
+opacity = 1.0
 padding = { x = 10, y = 10 }
 decorations = "none"
 
@@ -9,7 +9,7 @@ normal = { family = "Meslo LGM Nerd Font", style = "Regular" }
 size = 16.0
 
 [colors.primary]
-background = "#000000"
+background = "#141515"
 foreground = "#c7c6c6"
 
 [colors.normal]
