@@ -8,32 +8,32 @@ decorations = "none"
 normal = { family = "Meslo LGM Nerd Font", style = "Regular" }
 size = 16.0
 
+# Rose Pine Theme
 [colors.primary]
-background = "#141515"
-foreground = "#c7c6c6"
+background = "#191724"
+foreground = "#e0def4"
 
 [colors.normal]
-black   = "#1c1e22"
-red     = "#be8c8c"
-green   = "#9da380"
-yellow  = "#c2ac7b"
-blue    = "#8cadc6"
-magenta = "#b9a3ba"
-cyan    = "#a3b8b6"
-white   = "#c7c6c6"
+black   = "#26233a"
+red     = "#eb6f92"
+green   = "#31748f"
+yellow  = "#f6c177"
+blue    = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan    = "#ebbcba"
+white   = "#e0def4"
 
 [colors.bright]
-black   = "#51575d"
-red     = "#d99c9a"
-green   = "#b6c8b9"
-yellow  = "#d9c88a"
-blue    = "#a5bfe0"
-magenta = "#cfc2d4"
-cyan    = "#c4d2d0"
-white   = "#e0e0e0"
+black   = "#6e6a86"
+red     = "#eb6f92"
+green   = "#31748f"
+yellow  = "#f6c177"
+blue    = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan    = "#ebbcba"
+white   = "#e0def4"
 
 [env]
 TERM = "xterm-256color"
 
 [terminal]
-

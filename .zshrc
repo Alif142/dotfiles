@@ -11,7 +11,7 @@ export PATH="$PATH:$HOME/go/bin"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 #bindkey -s '^f' '~/.tmux/tmux-sessionizer.sh\n'
 
 autoload -U colors && colors
@@ -122,6 +122,5 @@ bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'
 bindkey -s '^o' '~/.config/tmux/sessions.sh python\n'
 bindkey -s '^p' '~/.config/tmux/sessions.sh go\n'
 
-eval "$(starship init zsh)"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

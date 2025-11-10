@@ -1,5 +1,4 @@
 7zip
-adw-gtk-theme
 alacritty
 amd-ucode
 base
@@ -42,7 +41,6 @@ neovim
 network-manager-applet
 networkmanager
 npm
-nvidia-dkms
 nwg-look
 os-prober
 pavucontrol
@@ -54,7 +52,6 @@ qt5-wayland
 qt6-wayland
 slurp
 smartmontools
-starship
 swww
 tmux
 ttf-jetbrains-mono-nerd

@@ -9,25 +9,25 @@
 
 #waybar {
   background: transparent;
-  color: #ffffff;
+  color: #e0def4;
   margin: 2px 2px;
 }
 
 #workspaces {
   border-radius: 0px;
   margin: 5px;
-  background: #141515;
+  background: #191724;
   margin-left: 2px;
 }
 
 #workspaces button {
-  color: #ffffff;
+  color: #e0def4;
   border-radius: 0px;
   padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: #ffffff;
+  color: #e0def4;
   border-radius: 0px;
 }
 
@@ -54,13 +54,13 @@ button {
 #custom-weather,
 #custom-uptime,
 #custom-docker {
-  background-color: #141515;
+  background-color: #191724;
   padding: 0.5rem 1rem;
   margin: 5px 0;
 }
 
 #clock {
-  color: #ffffff;
+  color: #e0def4;
   border-radius: 0px;
 }
 
@@ -92,7 +92,7 @@ button {
 }
 
 #pulseaudio {
-  color: #ffffff;
+  color: #e0def4;
   border-radius: 0px 0px 0px 0px;
 }
 
