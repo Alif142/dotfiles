@@ -28,7 +28,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -l 10 -nb black -nf '#FFFFFF' -sb '#444444' -sf '#FFFFFF' -fn 'JetBrainsMono Nerd Font-14' -b
+bindsym $mod+d exec --no-startup-id dmenu_run -l 10 -nb '#191724' -nf '#FFFFFF' -sb '#444444' -sf '#FFFFFF' -fn 'JetBrainsMono Nerd Font-14' -b
 
 
 # change focus
@@ -152,9 +152,11 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
         tray_output none
-
+        position top
+        wheel_up_cmd none
+        wheel_down_cmd none
         colors {
-                focused_workspace   #00000000   #3c3c3c     #FFFFFF
+                focused_workspace   #463249     #463249     #000000
                 urgent_workspace    #000000     #000000     #FFFFFF
         }
 }
@@ -163,14 +165,14 @@ bar {
 
 #My config
 # class                 border  background text indicator child_border
-client.focused          #444444 #444444   #ffffff #444444 #444444
+client.focused          #463249 #463249   #000000 #463249 #463249
 client.unfocused        #222222 #222222   #888888 #222222 #222222
 client.focused_inactive #333333 #333333   #888888 #333333 #333333
 
 #Auto launch apps
 exec --no-startup-id xfce4-clipman &
-exec xrandr --output HDMI-0 --mode 1920x1080 --rate 144
-exec picom&
+exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 144
+exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 exec_always --no-startup-id sh -c '[ -f ~/.cache/current_wallpaper.txt ] && feh --bg-scale "$(cat ~/.cache/current_wallpaper.txt)"'
 exec --no-startup-id setxkbmap -option caps:escape   
 exec --no-startup-id flameshot
@@ -178,23 +180,23 @@ exec --no-startup-id xset s off dpms 0 0 0
 
 #Border
 for_window [class="^.*"] border pixel 3
+# Workspace 2 default to tabbed layout
+exec_always --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
+
+# Send Brave to workspace 2
+assign [class="Brave-browser"] 2
 
 #gaps
-gaps inner 0
-gaps outer 10
+gaps inner 5
+gaps outer 0
 
 #Custom key Binds
 bindsym $mod+e exec /home/alif/.config/i3/powermenu_dmenu/dmenu_powermenu.sh
-bindsym $mod+b exec brave-browser
-bindsym $mod+Shift+b exec firefox 
 bindsym $mod+w exec /home/alif/.config/i3/wallpaper_dmenu/dmenu_wallpaper.sh
 bindsym $mod+p exec "flameshot gui --path ~/Pictures"   
-bindsym $mod+n exec nemo
-bindsym $mod+t exec qbittorrent
+bindsym $mod+b exec "brave-browser"   
 
 
 #Class assigned to workspace
-assign [class="Brave-browser"] 1
-assign [class="Alacritty"] 2
-assign [class="firefox"] 3
+assign [class="brave-browser"] 2
 assign [class="qBittorrent"] 10

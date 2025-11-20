@@ -20,14 +20,14 @@ battery all {
 }
 
 tztime local {
-        format = "DATE:[%d-%m-%Y] TIME:[%I:%M %p] "
+        format = "%d-%m-%Y %I:%M "
 }
 
 load {
-        format = "CPU:[%1min]"
+        format = "%1min"
 }
 
 disk "/" {
-        format = "DISK:[%avail]"
+        format = "%avail"
 }
 

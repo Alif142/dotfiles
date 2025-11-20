@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo "Backing up nvim github"
 cd /home/alif/.config/nvim/
 git add .

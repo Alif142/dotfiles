@@ -1,12 +1,12 @@
 # ~/.config/alacritty/alacritty.toml
 [window]
-opacity = 1.0
+opacity = 0.8
 padding = { x = 10, y = 10 }
 decorations = "none"
 
 [font]
-normal = { family = "Meslo LGM Nerd Font", style = "Regular" }
-size = 16.0
+normal = { family = "Meslo LGM Nerd Font", style = "Bold" }
+size = 18.0
 
 # Rose Pine Theme
 [colors.primary]
