@@ -13,14 +13,9 @@ export PATH=$PATH:/usr/local/go/bin
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-#bindkey -s '^f' '~/.tmux/tmux-sessionizer.sh\n'
 
 autoload -U colors && colors
 
-# Function to show git branch + status
-#Coustom config like prime
-#Run default tmux
-# Bind Alt+F to open a file with fzf and open it in a new tmux session
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -90,12 +85,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -114,9 +103,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias ta='tmux attach'
 alias tk='tmux kill-server'
-alias ls='ls -la'
-alias main='git checkout main'
-alias test='git checkout test'
+alias ls='ls'
+alias update='sudo apt update && sudo apt upgrade'
 #Sessonizer commands for individual dirs
 bindkey -s '^f' '~/.config/tmux/sessions.sh fzf\n'
 bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'

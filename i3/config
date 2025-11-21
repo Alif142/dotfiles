@@ -1,6 +1,7 @@
+
 set $mod Mod1
 
-font pango:monospace 15
+font pango:Meslo LGM Nerd Font 12
 
 exec --no-startup-id dex --autostart --environment i3
 
@@ -30,7 +31,6 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -l 10 -nb '#191724' -nf '#FFFFFF' -sb '#444444' -sf '#FFFFFF' -fn 'JetBrainsMono Nerd Font-14' -b
 
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -59,13 +59,13 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 #bindsym $mod+w layout tabbed
 #bindsym $mod+e layout toggle split
 
@@ -78,6 +78,11 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -150,27 +155,10 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-        tray_output none
-        position top
-        wheel_up_cmd none
-        wheel_down_cmd none
-        colors {
-                focused_workspace   #463249     #463249     #000000
-                urgent_workspace    #000000     #000000     #FFFFFF
-        }
+        status_command i3status
 }
 
 
-
-#My config
-# class                 border  background text indicator child_border
-client.focused          #463249 #463249   #000000 #463249 #463249
-client.unfocused        #222222 #222222   #888888 #222222 #222222
-client.focused_inactive #333333 #333333   #888888 #333333 #333333
-
-#Auto launch apps
-exec --no-startup-id xfce4-clipman &
 exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 144
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 exec_always --no-startup-id sh -c '[ -f ~/.cache/current_wallpaper.txt ] && feh --bg-scale "$(cat ~/.cache/current_wallpaper.txt)"'
@@ -179,7 +167,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id xset s off dpms 0 0 0   
 
 #Border
-for_window [class="^.*"] border pixel 3
+#for_window [class="^.*"] border pixel 1
 # Workspace 2 default to tabbed layout
 exec_always --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
 
@@ -187,7 +175,7 @@ exec_always --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
 assign [class="Brave-browser"] 2
 
 #gaps
-gaps inner 5
+gaps inner 0
 gaps outer 0
 
 #Custom key Binds
@@ -198,5 +186,7 @@ bindsym $mod+b exec "brave-browser"
 
 
 #Class assigned to workspace
-assign [class="brave-browser"] 2
+assign [class="brave-browser"] 1
 assign [class="qBittorrent"] 10
+client.focused #154D71 #154D71 #ffffff #154D71
+

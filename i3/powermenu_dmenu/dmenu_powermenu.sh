@@ -2,7 +2,7 @@
 # Power menu with dmenu + Tokyo Night theme + confirmation
 
 DMENU="dmenu -b -i -fn 'JetBrainsMono Nerd Font-14' \
-       -nb '#191724' -nf '#FFFFFF' -sb '#444444' -sf '#FFFFFF'"
+       -nb '#000000' -nf '#FFFFFF' -sb '#444444' -sf '#FFFFFF'"
 
 choice=$(printf " Lock\n󰗽 Logout\n󰜉 Reboot\n Shutdown" | eval "$DMENU -l 4")
 

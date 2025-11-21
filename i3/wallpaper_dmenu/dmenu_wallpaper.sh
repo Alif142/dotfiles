@@ -10,7 +10,7 @@ mkdir -p "$(dirname "$CACHE_FILE")"
 # Choose wallpaper via dmenu with your theme
 WALL=$(ls "$WALLPAPER_DIR" | dmenu -i -b -l 15 \
     -fn "JetBrainsMono Nerd Font-14" \
-    -nb "#191724" -nf "#FFFFFF" \
+    -nb "#000000" -nf "#FFFFFF" \
     -sb "#444444" -sf "#FFFFFF")
 
 # If user selects a wallpaper

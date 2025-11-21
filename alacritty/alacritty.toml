@@ -10,7 +10,7 @@ size = 18.0
 
 # Rose Pine Theme
 [colors.primary]
-background = "#191724"
+background = "#000000"
 foreground = "#e0def4"
 
 [colors.normal]
