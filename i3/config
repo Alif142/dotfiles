@@ -23,13 +23,13 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -l 10 -nb '#191724' -nf '#FFFFFF' -sb '#444444' -sf '#FFFFFF' -fn 'JetBrainsMono Nerd Font-14' -b
+bindsym $mod+d exec --no-startup-id dmenu_run -l 10 -nb '#000000' -nf '#FFFFFF' -sb '#444444' -sf '#FFFFFF' -fn 'JetBrainsMono Nerd Font-14' -b
 
 # change focus
 bindsym $mod+h focus left
@@ -167,26 +167,33 @@ exec --no-startup-id flameshot
 exec --no-startup-id xset s off dpms 0 0 0   
 
 #Border
-#for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 # Workspace 2 default to tabbed layout
-exec_always --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
+#exec_always --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
 
 # Send Brave to workspace 2
-assign [class="Brave-browser"] 2
+#assign [class="Brave-browser"] 2
+assign [class="wezterm"] 1
+assign [class="qBittorrent"] 10
 
 #gaps
-gaps inner 0
-gaps outer 0
+gaps inner 6
+gaps outer 6
 
 #Custom key Binds
 bindsym $mod+e exec /home/alif/.config/i3/powermenu_dmenu/dmenu_powermenu.sh
 bindsym $mod+w exec /home/alif/.config/i3/wallpaper_dmenu/dmenu_wallpaper.sh
 bindsym $mod+p exec "flameshot gui --path ~/Pictures"   
 bindsym $mod+b exec "brave-browser"   
+# YouTube → Workspace 3 (new window)
+bindsym $mod+y exec --no-startup-id brave-browser --new-window --class=YT https://youtube.com
+for_window [class="YT"] move to workspace 4
 
+# ChatGPT → Workspace 4 (new window)
+bindsym $mod+c exec --no-startup-id brave-browser --new-window --class=GPT https://chat.openai.com
+for_window [class="GPT"] move to workspace 3
 
 #Class assigned to workspace
-assign [class="brave-browser"] 1
-assign [class="qBittorrent"] 10
-client.focused #154D71 #154D71 #ffffff #154D71
+#client.focused #154D71 #154D71 #ffffff #154D71
+#client.unfocused #154D71 #000000 #ffffff #154D71
 

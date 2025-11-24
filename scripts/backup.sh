@@ -8,6 +8,7 @@ cp -r /home/alif/.config/i3 /home/alif/dotfiles/
 cp -r /home/alif/.config/i3status /home/alif/dotfiles/
 cp -r /home/alif/.config/picom/ /home/alif/dotfiles/
 cp -r /home/alif/.config/tmux/ /home/alif/dotfiles/
+cp -r /home/alif/.config/wezterm/ /home/alif/dotfiles/
 #HYPRLAND
 cp -r /home/alif/.config/fastfetch/ /home/alif/dotfiles/
 cp -r /home/alif/.config/fuzzel/ /home/alif/dotfiles/

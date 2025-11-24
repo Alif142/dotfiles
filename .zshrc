@@ -12,7 +12,7 @@ export PATH=$PATH:/usr/local/go/bin
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 
 autoload -U colors && colors
 
@@ -105,6 +105,7 @@ alias ta='tmux attach'
 alias tk='tmux kill-server'
 alias ls='ls'
 alias update='sudo apt update && sudo apt upgrade'
+alias n='nvim .'
 #Sessonizer commands for individual dirs
 bindkey -s '^f' '~/.config/tmux/sessions.sh fzf\n'
 bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'

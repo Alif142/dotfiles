@@ -8,6 +8,7 @@ cp -r /home/alif/dotfiles/tmux/ /home/alif/.config/
 cp -r /home/alif/dotfiles/i3/ /home/alif/.config/
 cp -r /home/alif/dotfiles/i3status/ /home/alif/.config/
 cp -r /home/alif/dotfiles/picom/ /home/alif/.config/
+cp -r /home/alif/dotfiles/wezterm/ /home/alif/.config/
 #cp -r /home/alif/dotfiles/fastfetch/ /home/alif/.config/
 #cp -r /home/alif/dotfiles/waybar/ /home/alif/.config/
 #cp -r /home/alif/dotfiles/fuzzel/ /home/alif/.config/
