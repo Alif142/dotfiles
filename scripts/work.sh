@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-mkdir -p /home/alif/work
-cd /home/alif/work
+mkdir -p /$HOME/work
+cd /$HOME/work
 git clone https://github.com/Alif142/python.git
 git clone https://github.com/Alif142/c_cpp.git
 git clone https://github.com/Alif142/go.git
