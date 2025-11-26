@@ -162,7 +162,7 @@ bar {
 exec_always xrandr --output HDMI-0 --mode 1920x1080 --rate 144
 exec_always --no-startup-id picom --experimental-backends --config ~/.config/picom/picom.conf
 exec_always --no-startup-id sh -c '[ -f ~/.cache/current_wallpaper.txt ] && feh --bg-scale "$(cat ~/.cache/current_wallpaper.txt)"'
-exec --no-startup-id setxkbmap -option caps:escape   
+exec_always --no-startup-id setxkbmap -option caps:escape   
 exec --no-startup-id flameshot
 exec --no-startup-id xset s off dpms 0 0 0   
 
@@ -187,11 +187,9 @@ bindsym $mod+p exec "flameshot gui --path ~/Pictures"
 bindsym $mod+b exec "brave-browser"   
 # YouTube → Workspace 3 (new window)
 bindsym $mod+y exec --no-startup-id brave-browser --new-window --class=YT https://youtube.com
-for_window [class="YT"] move to workspace 4
 
 # ChatGPT → Workspace 4 (new window)
 bindsym $mod+c exec --no-startup-id brave-browser --new-window --class=GPT https://chat.openai.com
-for_window [class="GPT"] move to workspace 3
 
 #Class assigned to workspace
 #client.focused #154D71 #154D71 #ffffff #154D71
