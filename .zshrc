@@ -109,8 +109,8 @@ alias n='nvim .'
 #Sessonizer commands for individual dirs
 bindkey -s '^f' '~/.config/tmux/sessions.sh fzf\n'
 bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'
-bindkey -s '^o' '~/.config/tmux/sessions.sh python\n'
-bindkey -s '^p' '~/.config/tmux/sessions.sh go\n'
+bindkey -s '^p' '~/.config/tmux/sessions.sh python\n'
+bindkey -s '^g' '~/.config/tmux/sessions.sh go\n'
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

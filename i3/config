@@ -1,7 +1,7 @@
 
 set $mod Mod1
 
-font pango:Meslo LGM Nerd Font 12
+font pango:Meslo LGM Nerd Font 11
 
 exec --no-startup-id dex --autostart --environment i3
 
@@ -167,7 +167,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id xset s off dpms 0 0 0   
 
 #Border
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 # Workspace 2 default to tabbed layout
 #exec_always --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
 
@@ -177,8 +177,8 @@ assign [class="wezterm"] 1
 assign [class="qBittorrent"] 10
 
 #gaps
-gaps inner 6
-gaps outer 6
+gaps inner 5
+gaps outer 5
 
 #Custom key Binds
 bindsym $mod+e exec /home/alif/.config/i3/powermenu_dmenu/dmenu_powermenu.sh
