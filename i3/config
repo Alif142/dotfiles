@@ -1,7 +1,7 @@
 
 set $mod Mod1
 
-font pango:Meslo LGM Nerd Font 11
+font pango:Meslo LGM Nerd Font 12
 
 exec --no-startup-id dex --autostart --environment i3
 
@@ -190,8 +190,3 @@ bindsym $mod+y exec --no-startup-id brave-browser --new-window --class=YT https:
 
 # ChatGPT → Workspace 4 (new window)
 bindsym $mod+c exec --no-startup-id brave-browser --new-window --class=GPT https://chat.openai.com
-
-#Class assigned to workspace
-#client.focused #154D71 #154D71 #ffffff #154D71
-#client.unfocused #154D71 #000000 #ffffff #154D71
-
