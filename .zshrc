@@ -103,9 +103,11 @@ source $ZSH/oh-my-zsh.sh
 
 alias ta='tmux attach'
 alias tk='tmux kill-server'
-alias ls='ls'
 alias update='sudo apt update && sudo apt upgrade'
-alias n='nvim .'
+alias vi='nvim'
+alias tc='typst compile'
+alias td='xreader /home/alif/work/typst/todo.pdf & disown'
+alias py='python3'
 #Sessonizer commands for individual dirs
 bindkey -s '^f' '~/.config/tmux/sessions.sh fzf\n'
 bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'

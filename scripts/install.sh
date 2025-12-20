@@ -6,7 +6,7 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
 sudo apt update && sudo apt upgrade
 echo "Installing required packges"
-sudo apt install alacritty fzf zsh tmux ripgrep feh lxappearance  xclip npm cmake unzip flameshot pavucontrol wezterm i3 i3status dmenu vlc qbittorrnet picom
+sudo apt install alacritty fzf zsh tmux ripgrep feh lxappearance  xclip npm cmake unzip flameshot pavucontrol wezterm i3 i3status  vlc  picom golang suckless-tools openjdk-25-jre
 curl -fsS https://dl.brave.com/install.sh | sh
 
 sleep 1

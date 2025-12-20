@@ -1,6 +1,6 @@
 # ~/.config/alacritty/alacritty.toml
 [window]
-opacity = 0.8
+opacity = 1.0
 padding = { x = 10, y = 10 }
 decorations = "none"
 
@@ -8,30 +8,31 @@ decorations = "none"
 normal = { family = "Meslo LGM Nerd Font", style = "Bold" }
 size = 18.0
 
-# Rose Pine Theme
 [colors.primary]
-background = "#000000"
-foreground = "#e0def4"
+background = '#10100E'
+foreground = '#C6C6C4'
 
+# Normal colors
 [colors.normal]
-black   = "#26233a"
-red     = "#eb6f92"
-green   = "#31748f"
-yellow  = "#f6c177"
-blue    = "#9ccfd8"
-magenta = "#c4a7e7"
-cyan    = "#ebbcba"
-white   = "#e0def4"
+black   = '#10100E'
+red     = '#C40233'
+green   = '#009F6B'
+yellow  = '#FFD700'
+blue    = '#0087BD'
+magenta = '#9A4EAE'
+cyan    = '#20B2AA'
+white   = '#C6C6C4'
 
+# Bright colors
 [colors.bright]
-black   = "#6e6a86"
-red     = "#eb6f92"
-green   = "#31748f"
-yellow  = "#f6c177"
-blue    = "#9ccfd8"
-magenta = "#c4a7e7"
-cyan    = "#ebbcba"
-white   = "#e0def4"
+black   = '#696969'
+red     = '#FF2400'
+green   = '#03C03C'
+yellow  = '#FDFF00'
+blue    = '#007FFF'
+magenta = '#FF1493'
+cyan    = '#00CCCC'
+white   = '#FFFAFA'
 
 [env]
 TERM = "xterm-256color"
