@@ -1,6 +1,5 @@
-
 set $mod Mod1
-
+default_border none
 font pango:Meslo LGM Nerd Font 15
 
 exec --no-startup-id dex --autostart --environment i3
@@ -115,7 +114,7 @@ bindsym $mod+e exec /home/alif/.config/i3/powermenu_dmenu/dmenu_powermenu.sh
 bindsym $mod+w exec /home/alif/.config/i3/wallpaper_dmenu/dmenu_wallpaper.sh
 bindsym $mod+p exec "flameshot gui --path ~/Pictures"   
 bindsym $mod+b exec "brave-browser"   
+bindsym $mod+n exec "nemo"   
 #gaps inner 5
 #gaps outer 0
 workspace_layout tabbed
-exec_always pkill picom

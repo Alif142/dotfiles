@@ -12,10 +12,9 @@ export PATH=$PATH:/usr/local/go/bin
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="avit"
-
+ZSH_THEME="robbyrussell"
+#PROMPT="%~ > "
 autoload -U colors && colors
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -109,7 +108,7 @@ alias tc='typst compile'
 alias td='xreader /home/alif/work/typst/todo.pdf & disown'
 alias py='python3'
 #Sessonizer commands for individual dirs
-bindkey -s '^f' '~/.config/tmux/sessions.sh fzf\n'
+bindkey -s '^f' '~/.config/tmux/sessions.sh sk\n'
 bindkey -s '^u' '~/.config/tmux/sessions.sh nvim\n'
 bindkey -s '^p' '~/.config/tmux/sessions.sh python\n'
 bindkey -s '^g' '~/.config/tmux/sessions.sh go\n'

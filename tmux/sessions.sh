@@ -1,13 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # ==========================================
 # Tmux Session Manager — by Alif
+# FAST VERSION (skim / sk)
+# ==========================================
 # Features:
-#   1. fzf-based sessionizer (dynamic)
+#   1. sk-based sessionizer (dynamic)
 #   2. static key-based sessions (from config)
-#   3. works seamlessly inside or outside tmux
+#   3. works inside or outside tmux
 #   4. creates sessions with two windows
 # ==========================================
+
+set -e
 
 CONFIG_FILE="$HOME/.config/tmux/static_sessions.txt"
 declare -A PROJECTS
@@ -29,7 +33,6 @@ create_session() {
   local name="$1"
   local dir="$2"
 
-  # If session already exists, just switch or attach
   if tmux has-session -t "$name" 2>/dev/null; then
     if [ -n "$TMUX" ]; then
       tmux switch-client -t "$name"
@@ -39,11 +42,8 @@ create_session() {
     return
   fi
 
-  # Otherwise, create a new one
   tmux new-session -d -s "$name" -c "$dir"
   tmux rename-window -t "$name":1 "editor"
-  tmux send-keys -t "$name":1 "nvim ." C-m
-
   tmux new-window -t "$name" -n "terminal" -c "$dir"
   tmux select-window -t "$name":1
 
@@ -55,10 +55,9 @@ create_session() {
 }
 
 # ------------------------------------------
-# FZF Sessionizer (Dynamic)
+# Dynamic sk-based sessionizer (FAST)
 # ------------------------------------------
-fzf_sessionizer() {
-  # Directories to search for projects
+sk_sessionizer() {
   DIRS=(
     "$HOME/.config/nvim"
     "$HOME/work"
@@ -67,12 +66,16 @@ fzf_sessionizer() {
   )
 
   local selected
-  selected=$(find "${DIRS[@]}" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --prompt="Choose project: ")
+  selected=$(
+    find "${DIRS[@]}" \
+      -mindepth 0 -maxdepth 3 \
+      -type d 2>/dev/null | sk --margin 10% --color="bw"
+  )
 
   [[ -z "$selected" ]] && exit 0
 
   local session_name
-  session_name=$(basename "$selected" | tr . _)
+  session_name="$(basename "$selected" | tr . _)"
 
   create_session "$session_name" "$selected"
 }
@@ -81,8 +84,8 @@ fzf_sessionizer() {
 # CLI Interface
 # ------------------------------------------
 case "$1" in
-  fzf)
-    fzf_sessionizer
+  sk)
+    sk_sessionizer 
     ;;
   add)
     if [ -z "$2" ] || [ -z "$3" ]; then
@@ -105,7 +108,6 @@ case "$1" in
     cat "$CONFIG_FILE"
     ;;
   *)
-    # static session launch
     if [ -n "$1" ]; then
       dir="${PROJECTS[$1]}"
       if [ -z "$dir" ]; then
@@ -116,14 +118,13 @@ case "$1" in
       create_session "$1" "$dir"
     else
       echo "Usage:"
-      echo "  sessions.sh fzf                 → open dynamic fzf sessionizer"
-      echo "  sessions.sh <name>              → open static session"
-      echo "  sessions.sh add <name> <path>   → add static session"
-      echo "  sessions.sh remove <name>       → remove static session"
-      echo "  sessions.sh list                → show static sessions"
+      echo "  sessions.sh sk                 → dynamic sessionizer (sk)"
+      echo "  sessions.sh <name>               → open static session"
+      echo "  sessions.sh add <name> <path>    → add static session"
+      echo "  sessions.sh remove <name>        → remove static session"
+      echo "  sessions.sh list                 → list static sessions"
     fi
     ;;
 esac
 
 exit 0
-

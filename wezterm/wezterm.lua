@@ -44,6 +44,6 @@ config.color_schemes = {
 }
 config.color_scheme = 'Vague'
 
-config.window_background_opacity = 0.5
+config.window_background_opacity = 1.0
 config.window_close_confirmation = "NeverPrompt"
 return config
