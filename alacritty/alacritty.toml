@@ -1,40 +1,41 @@
-# ~/.config/alacritty/alacritty.toml
-[window]
-opacity = 1.0
-padding = { x = 10, y = 10 }
-decorations = "none"
-
-[font]
-normal = { family = "Meslo LGM Nerd Font", style = "Bold" }
-size = 18.0
-
+# Default colors
 [colors.primary]
-background = '#10100E'
-foreground = '#C6C6C4'
+background = '#1a1b26'
+foreground = '#c0caf5'
 
 # Normal colors
 [colors.normal]
-black   = '#10100E'
-red     = '#C40233'
-green   = '#009F6B'
-yellow  = '#FFD700'
-blue    = '#0087BD'
-magenta = '#9A4EAE'
-cyan    = '#20B2AA'
-white   = '#C6C6C4'
+black = '#15161e'
+red = '#f7768e'
+green = '#9ece6a'
+yellow = '#e0af68'
+blue = '#7aa2f7'
+magenta = '#bb9af7'
+cyan = '#7dcfff'
+white = '#a9b1d6'
 
 # Bright colors
 [colors.bright]
-black   = '#696969'
-red     = '#FF2400'
-green   = '#03C03C'
-yellow  = '#FDFF00'
-blue    = '#007FFF'
-magenta = '#FF1493'
-cyan    = '#00CCCC'
-white   = '#FFFAFA'
+black = '#414868'
+red = '#ff899d'
+green = '#9fe044'
+yellow = '#faba4a'
+blue = '#8db0ff'
+magenta = '#c7a9ff'
+cyan = '#a4daff'
+white = '#c0caf5'
+
+[window]
+decorations = "buttonless"  # Removes window borders and title bar
+opacity = 1.0                 # Slight transparency
+padding.x = 25
+padding.y = 25
 
 [env]
 TERM = "xterm-256color"
 
-[terminal]
+[font]
+normal.family = "Meslo LGM Nerd Font"
+italic.family = "Meslo LGM Nerd Font"
+bold.family = "Meslo LGM Nerd Font"
+size = 14.0

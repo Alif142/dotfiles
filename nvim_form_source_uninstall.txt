@@ -1,7 +1,0 @@
-sudo rm -rf /usr/local/bin/nvim
-sudo rm -rf /usr/local/share/nvim
-sudo rm -rf /usr/local/lib/nvim
-sudo rm -rf /usr/local/include/nvim
-sudo rm -rf /usr/local/share/applications/nvim.desktop
-sudo rm -rf /usr/local/share/icons/hicolor/*/apps/nvim.png
-
