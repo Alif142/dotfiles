@@ -1,0 +1,4 @@
+# name  path
+nvim  ~/.config/nvim
+go    ~/work/go
+python  ~/work/python/cs50/
